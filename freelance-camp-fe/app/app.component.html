@@ -1,11 +1,12 @@
-<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+
+<nav class="nav navbar-fixed-top navbar-light bg-faded ">
 	<div class="contatiner">
-		<ul class="nav navbar-nav">
+		<ul class="nav navbar-header">
 			<li class="nav-item">
-				<a class="nav-link" routerLink="/home">home</a>
+				<a class="nav-link" routerLink="/home" routerLinkActive="active">home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" routerLink="/documents">docs</a>
+				<a class="nav-link" routerLink="/documents" routerLinkActive="active">docs</a>
 			</li>
 			<li class="nav-item dropdown">
 				<div ngbDropdown class="d-inline-block dropdown-links">
@@ -13,8 +14,8 @@
 						proposals
 					</button>
 					<div class="dropdown-menu" aria-labelledby="proposalDropdown">
-						<a class="dropdown-item" routerLink="/proposals">proposals</a>
-						<a class="dropdown-item" routerLink="/proposals/new">New proposals</a>
+						<a class="dropdown-item" routerLink="/proposals" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >proposals</a>
+						<a class="dropdown-item" routerLink="/proposals/new" routerLinkActive="active">New proposals</a>
 					</div>
 				</div>
 			</li>
@@ -22,14 +23,6 @@
 	</div>
 </nav>
 
-
-
-
-	<h1>Navigation</h1>
-
-	
-	
-	
-	
-	
+<div class="app-body">
 	<router-outlet></router-outlet>
+</div>
