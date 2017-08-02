@@ -1,36 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import { Document } from './document';
+import { DocumentService } from './document.service';
+// import {enableProdMode} from '@angular/core';
 
+// enableProdMode();
 @Component({
 	moduleId: module.id,
 	selector: 'documents',
 	templateUrl: 'documents.component.html',
-	styleUrls: ['documents.component.css']
-}) 
-
-export class DocumentsComponent {
+	styleUrls: ['documents.component.css'],
+	providers: [ DocumentService ]
+})
+export class DocumentsComponent implements OnInit {
 	pageTitle: string = "Document Dashboard"
-	documents: Document[] = [
-		{ 
-			title: 'my first doc',
-			description: 'asdfasf',
-			file_url: 'google.com',
-			updated_at: '12/3',
-			image_url: 'https://c1.staticflickr.com/7/6129/5964208782_8bb300bbaa_b.jpg'
-		},
-		{ 
-			title: 'my second doc',
-			description: 'asdfasf',
-			file_url: 'google.com',
-			updated_at: '123',
-			image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Traditional_American_taco_-_Evan_Swigart.jpg/1280px-Traditional_American_taco_-_Evan_Swigart.jpg'
-		},
-		{ 
-			title: 'my third doc',
-			description: 'asdfasf',
-			file_url: 'google.com',
-			updated_at: '123',
-			image_url: 'https://c1.staticflickr.com/8/7003/6757470443_78bfba1c69_b.jpg'
-		},
-	]
+	documents: Document[]; 
+	errorMessage: string;
+	mode = "Observable";
+
+	constructor(
+		private documentService: DocumentService,
+	) {}
+
+	ngOnInit() {
+		let timer = Observable.timer(0, 5000);
+		timer.subscribe(() => this.getDocuments());
+	}
+
+	getDocuments() {
+		this.documentService.getDocuments()
+				.subscribe(
+					documents => this.documents = documents,
+					error => this.errorMessage = <any>error
+				);
+	}
 }
