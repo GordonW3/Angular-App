@@ -16,7 +16,8 @@ var ProposalNewComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'porposal-new',
-            templateUrl: 'porposal-new.component.html'
+            templateUrl: 'porposal-new.component.html',
+            styleUrls: ['proposal-new.component.css']
         })
     ], ProposalNewComponent);
     return ProposalNewComponent;
