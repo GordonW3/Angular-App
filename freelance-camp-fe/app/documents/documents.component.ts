@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Document } from './document';
 import { DocumentService } from './document.service';
-// import {enableProdMode} from '@angular/core';
 
-// enableProdMode();
 @Component({
 	moduleId: module.id,
 	selector: 'documents',

@@ -12,8 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var Rx_1 = require("rxjs/Rx");
 var document_service_1 = require("./document.service");
-// import {enableProdMode} from '@angular/core';
-// enableProdMode();
 var DocumentsComponent = (function () {
     function DocumentsComponent(documentService) {
         this.documentService = documentService;
